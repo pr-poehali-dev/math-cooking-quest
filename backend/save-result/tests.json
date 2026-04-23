@@ -1,0 +1,18 @@
+{
+  "tests": [
+    {
+      "name": "Сохранить результат",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "student_name": "Тест Тестов",
+        "score": 5,
+        "mistakes": 1,
+        "duration_seconds": 120,
+        "answers": [{"question_id": 1, "correct": true}, {"question_id": 2, "correct": false}]
+      },
+      "expectedStatus": 200,
+      "bodyMatcher": "none"
+    }
+  ]
+}
