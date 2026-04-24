@@ -3,6 +3,8 @@ import Icon from "@/components/ui/icon";
 
 const SAVE_URL = "https://functions.poehali.dev/a225f95e-b93b-4a13-982f-40120e0638aa";
 const GET_URL = "https://functions.poehali.dev/7def573b-6ee3-43d0-b670-1a0ce71c9eea";
+const SITE_URL = "https://math-cooking-quest--preview.poehali.dev/";
+const QR_URL = `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(SITE_URL)}&color=1a1a1a&bgcolor=ffffff&margin=10`;
 
 // ─── Типы ────────────────────────────────────────────────────────────────────
 
@@ -620,6 +622,29 @@ function ClassView() {
       <div className="mb-6">
         <h1 className="text-2xl font-semibold text-foreground">Таблица класса</h1>
         <p className="text-sm text-muted-foreground mt-0.5">Результаты всех учеников</p>
+      </div>
+
+      {/* QR-код */}
+      <div className="bg-card border border-border rounded-2xl p-5 mb-6 flex flex-col sm:flex-row items-center gap-5">
+        <img
+          src={QR_URL}
+          alt="QR-код сайта"
+          className="w-[120px] h-[120px] rounded-xl border border-border shrink-0"
+        />
+        <div className="flex-1 text-center sm:text-left">
+          <div className="font-semibold text-foreground mb-1">Покажи ученикам QR-код</div>
+          <p className="text-sm text-muted-foreground mb-3">
+            Пусть отсканируют камерой телефона — сразу откроется квест
+          </p>
+          <a
+            href={SITE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-primary underline break-all"
+          >
+            {SITE_URL}
+          </a>
+        </div>
       </div>
 
       {loading && (
